@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ResponsiveWebPSourceSet</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container py-5">
+        <section class="hero text-center">
+            <h1 class="display-4 fw-bold">ResponsiveWebPSourceSet</h1>
+            <p class="lead text-muted mx-auto" style="max-width:760px;">
+                An ASP.NET Core TagHelper that automatically generates optimized WebP images
+                and responsive <code>&lt;picture&gt;</code> markup from a single source image.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+
+                <a href="https://www.nuget.org/packages/ResponsiveWebPSourceSet"
+                   target="_blank"
+                   class="btn btn-primary btn-lg p-4">
+                    NuGet Package
+                </a>
+
+                <a href="https://github.com/dragan171/EasyComponentsSample"
+                   target="_blank"
+                   class="btn btn-success btn-lg p-4">
+                    GitHub Sample Project
+                </a>
+
+            </div>
+
+        </section>
+
+        <section class="mb-5">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Automatic WebP Conversion</h5>
+                            <p class="card-text mb-0">
+                                Converts JPG, JPEG, PNG and GIF images into optimized WebP files automatically.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Responsive Images</h5>
+                            <p class="card-text mb-0">
+                                Generates <code>&lt;picture&gt;</code> and <code>&lt;source&gt;</code> elements with responsive <code>srcset</code> support.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Performance Optimized</h5>
+                            <p class="card-text mb-0">
+                                Supports lazy loading, fetch priority, CLS reduction and SEO-friendly markup.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Features</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="list-group shadow-sm">
+                        <li class="list-group-item">✅ Convert JPEG, PNG and GIF to WebP</li>
+                        <li class="list-group-item">✅ Generate responsive picture elements</li>
+                        <li class="list-group-item">✅ Automatic srcset generation</li>
+                        <li class="list-group-item">✅ Configurable media breakpoints</li>
+                        <li class="list-group-item">✅ Automatic width and height detection</li>
+                        <li class="list-group-item">✅ CLS reduction</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <ul class="list-group shadow-sm">
+                        <li class="list-group-item">✅ Lazy loading support</li>
+                        <li class="list-group-item">✅ Fetch priority support</li>
+                        <li class="list-group-item">✅ SEO-friendly markup</li>
+                        <li class="list-group-item">✅ Responsive by default</li>
+                        <li class="list-group-item">✅ Lightweight and fast</li>
+                        <li class="list-group-item">✅ Easy to use</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Installation</h2>
+            <p class="text-muted">Install the package from NuGet using the .NET CLI:</p>
+            <div class="bg-dark text-light p-3 rounded shadow-sm code-card">
+                <pre class="mb-0"><code>dotnet add package ResponsiveWebPSourceSet</code></pre>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Registration</h2>
+            <p class="text-muted">Register the TagHelper in your Razor Pages or MVC project:</p>
+            <div class="bg-dark text-light p-3 rounded shadow-sm code-card">
+                <pre class="mb-0"><code>@@addTagHelper *, ResponsiveWebPSourceSet</code></pre>
+            </div>
+        </section>
+
+
+
+        <h2>View</h2>
+        <div class="bg-dark text-light p-3 rounded shadow-sm code-card mb-4">
+            <pre><code>
+@page
+@model IndexModel
+@inject IWebHostEnvironment env
+@addTagHelper *, ResponsiveWebPSourceSet
+
+@{
+    var webRootImagePath = System.IO.Path.Combine(env.WebRootPath, "images", "photo1.jpg");
+    var externalImagePath = System.IO.Path.Combine(@"D:\data", "images", "photo2.jpg");   
+}
+</code></pre>
+
+            <div class="fs-4">Basic Usage</div>
+            Basic usage of the responsive-webpsourceset tag helper:
+            <pre><code>
+&lt;responsive-webpsourceset
+    Url="/images/photo1.jpg"
+    SourceImagePath="@webRootImagePath"&gt;
+&lt;/responsive-webpsourceset&gt;
+</code></pre>
+            --------------------------------------------
+            <div class="fs-4">External Images</div>
+            Images that use an externalImagePath require a controller to serve image files from locations outside the web root.
+            <pre><code>
+&lt;responsive-webpsourceset
+    Url="/external-images/photo2.jpg"
+    SourceImagePath="@externalImagePath"&gt;
+&lt;/responsive-webpsourceset&gt;
+</code></pre>
+            --------------------------------------------
+            <div class="fs-4">Custom Configuration</div>
+            Customize media breakpoints, lazy loading, fetch priority, CSS attributes, and alternative text.
+<pre><code>
+&lt;responsive-webpsourceset
+    Url="/images/photo1.jpg"
+    SourceImagePath="@webRootImagePath"
+    UserDefMedia="2500:1400,1400:800,800:600"
+    isLazyLoading="true"
+    isFetchpriorityHigh="false"
+    cssStyle="border:1px solid black;"
+    cssClass="custom-class"
+    Alt="Description of the image"&gt;
+&lt;/responsive-webpsourceset&gt;
+</code></pre>
+        </div>
+
+        <section class="mb-5">
+            <h2 class="section-title">Generated HTML</h2>
+
+            <div class="bg-secondary text-white p-3 rounded shadow-sm code-card mb-4">
+                <h4 class="mb-3">Basic Usage - Generated HTML</h4>
+
+
+
+
+
+                <div class="bg-secondary text-white p-3 rounded code-card mb-4 border border-1 border-white small">
+                    On the initial page load, only an &lt;img&gt; element is rendered (no &lt;source&gt; elements are generated yet) because the WebP images are created in the background.
+                    <br />    After the generation process has completed, the corresponding &lt;source&gt; elements with srcset attributes become available.
+                </div>
+
+
+                <pre class="mb-0"><code>&lt;picture&gt;
+  &lt;source srcset="/images/photo-size2500.webp" media="(min-width:1400px)"&gt;
+  &lt;source srcset="/images/photo-size1400.webp" media="(min-width:1200px)"&gt;
+  &lt;source srcset="/images/photo-size1200.webp" media="(min-width:992px)"&gt;
+  &lt;source srcset="/images/photo-size992.webp" media="(min-width:768px)"&gt;
+  &lt;source srcset="/images/photo-size768.webp" media="(min-width:576px)"&gt;
+  &lt;source srcset="/images/photo-size576.webp" media="(min-width:421px)"&gt;
+  &lt;source srcset="/images/photo-size420.webp" media="(max-width:420px)"&gt;
+  &lt;img src="/images/photo.jpg" alt="Sample photo" style="max-width:100%; height:auto;" width="3535" height="1032" /&gt;
+&lt;/picture&gt;</code></pre>
+
+                <h4 class="mt-4 mb-3">Custom Usage - Generated HTML</h4>
+                <span class="text-white mb-3">
+                    Use <code>UserDefMedia</code> to define custom image widths and media breakpoints.
+                    Format: <code>imageWidth:min-mediaWidth</code>, separated by commas. UserDefMedia="2500:1400,1400:800,800:600"
+                </span>
+                <pre class="mb-0"><code>&lt;picture&gt;
+  &lt;source srcset="/images/photo-size2500.webp" media="(min-width:1400px)"&gt;
+  &lt;source srcset="/images/photo-size1000.webp" media="(min-width:800px)"&gt;
+  &lt;source srcset="/images/photo-size620.webp" media="(max-width:600px)"&gt;
+  &lt;img src="/images/photo.jpg" alt="Sample photo" style="max-width:100%; height:auto;" width="3535" height="1032" /&gt;
+&lt;/picture&gt;</code></pre>
+            </div>
+        </section>
+
+
+        <h2>Controller for External Images Only</h2>
+        <div class="bg-dark text-light p-3 rounded shadow-sm code-card mb-4">
+            <pre><code>
+using Microsoft.AspNetCore.Mvc;
+namespace WebRazor10.Controllers
+{
+    public class ImagesController : Controller
+    {
+        [HttpGet("/external-images/{fileName}")]
+        public IActionResult GetImage(string fileName)
+        {
+            var imagePath = Path.Combine(  @@"D:\data", "images",fileName);
+              
+            if (!System.IO.File.Exists(imagePath))
+            {
+                return NotFound();
+            }
+
+            var extension = Path.GetExtension(fileName).ToLowerInvariant();
+
+            var contentType = extension switch
+            {
+                ".jpg" or ".jpeg" => "image/jpeg",
+                ".png" => "image/png",
+                ".gif" => "image/gif",
+                ".webp" => "image/webp",
+                _ => "application/octet-stream"
+            };
+
+            return PhysicalFile(imagePath, contentType);
+        }
+    }
+}
+</code></pre>
+
+        </div>
+
+        <img src="/images/srcset.png" class="img-fluid rounded-3 border  border-1  border-black rounded-3  mx-auto d-block" />
+
+
+        <section class="mb-5">
+            <h2 class="section-title">Available Attributes</h2>
+            <div class="table-responsive shadow-sm">
+                <table class="table table-striped table-bordered align-middle bg-white">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>SourceImagePath (required) </code></td>
+                            <td>Physical path to the original source image on the server.</td>
+                        </tr>
+                        <tr>
+                            <td><code>Url (required) </code></td>
+                            <td>Public image URL used in the generated HTML output.</td>
+                        </tr>
+                        <tr>
+                            <td><code>UserDefMedia</code></td>
+                            <td>Optional custom breakpoints, for example (imageWidth:min-mediaWidth)<code>2500:1400,1400:800,800:600</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><code>cssClass</code></td>
+                            <td>CSS classes added to the generated <code>img</code> element.</td>
+                        </tr>
+                        <tr>
+                            <td><code>cssStyle</code></td>
+                            <td>
+                                Inline styles applied to the generated <code>img</code> element.
+                                <br /> Already included :"max-width:100%; height:auto;" - Responsive image support.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code>alt</code></td>
+                            <td>Alternative text for accessibility and SEO.</td>
+                        </tr>
+                        <tr>
+                            <td><code>isLazyLoading (bool)</code></td>
+                            <td>Adds <code>loading="lazy"</code> to the generated <code>img</code> element.</td>
+                        </tr>
+                        <tr>
+                            <td><code>isFetchpriorityHigh  (bool)</code></td>
+                            <td>Adds <code>fetchpriority="high"</code> for priority image loading.</td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <code>width, height </code>
+                            </td>
+                            <td>The files will be generated automatically.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Supported Formats</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card border-success shadow-sm h-100">
+                        <div class="card-header fw-semibold">Input</div>
+                        <div class="card-body">
+                            <ul class="mb-0">
+                                <li>JPG</li>
+                                <li>JPEG</li>
+                                <li>PNG</li>
+                                <li>GIF</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card border-primary shadow-sm h-100">
+                        <div class="card-header fw-semibold">Output</div>
+                        <div class="card-body">
+                            <strong>WebP</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Requirements</h2>
+            <ul class="list-group shadow-sm">
+                <li class="list-group-item">.NET 8 or later</li>
+                <li class="list-group-item">ASP.NET Core</li>
+                <li class="list-group-item">SixLabors.ImageSharp</li>
+            </ul>
+        </section>
+
+        <footer class="border-top pt-4 text-center">
+            <h4>ResponsiveWebPSourceSet</h4>
+            <p class="text-muted">
+                Generate responsive, optimized WebP images with a single ASP.NET Core TagHelper.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="https://www.nuget.org/packages/ResponsiveWebPSourceSet" class="btn btn-primary">
+                    NuGet
+                </a>
+            </div>
+
+            <p class="mt-4 text-muted">
+                MIT License · Created by DraganS
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

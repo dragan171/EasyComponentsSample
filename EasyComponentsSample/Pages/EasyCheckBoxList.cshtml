@@ -10,8 +10,8 @@
                     <tr>
                         <td style="width:250px">
                             <check-box-combo asp-items="testModels.List1"
-                                             add-css="false"
-                                             add-javascript="false"
+                                             add-javascript="true"
+                                             add-css="true"
                                              column-name="Name_1"
                                              column-value="Value_1"
                                              column-checked="Checked_1"
@@ -26,7 +26,7 @@
                                     <tr>
                                         <td>@item.Name_1</td>
                                         <td>@item.Value_1</td>
-                                        <td>@item.Checked_1  </td>
+                                        <td style="background-color:#ffc">@item.Checked_1  </td>
                                         <td>@item.Info_1</td>
                                     </tr>
                                 }
@@ -35,10 +35,9 @@
                     </tr>
 
                     <tr>
-                        <td style="width:250px; padding-top:40px">
+                        <td style="width:250px; padding-top:100px">
                             <check-box-combo asp-items="testModels.List2"
-                                             add-css="false"
-                                             add-javascript="false"
+              
                                              column-name="Name_2"
                                              column-value="Value_2"
                                              column-checked="Checked_2"
@@ -46,14 +45,14 @@
                                              asp-title="Example 2">
                             </check-box-combo>
                         </td>
-                        <td style="width:250px; padding-top:40px">
+                        <td style="width:250px; padding-top:100px">
                             <table style="width:100%">
                                 @foreach (var item in Model.testModels.List2)
                                 {
                                     <tr>
                                         <td>@item.Name_2</td>
                                         <td>@item.Value_2</td>
-                                        <td>@item.Checked_2</td>
+                                        <td style="background-color:#ffc">@item.Checked_2</td>
                                         <td>@item.Info_2</td>
                                     </tr>
                                 }
@@ -73,5 +72,5 @@
     </form>
 </main>
 
-<link href="~/css/easycheckboxlist.css" rel="stylesheet" />
-<script src="~/js/easycheckboxlist.js"></script>
+@* <link href="~/css/easycheckboxlist.css" rel="stylesheet" />
+<script src="~/js/easycheckboxlist.js"></script> *@

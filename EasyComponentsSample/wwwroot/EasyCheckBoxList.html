@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>EasyCheckBoxList</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <div class="container py-5">
+
+        <section class="hero text-center">
+            <h1 class="display-4 fw-bold">EasyCheckBoxList</h1>
+
+            <p class="lead text-muted mx-auto" style="max-width:760px;">
+                An ASP.NET Core Tag Helper that transforms standard checkbox collections
+                into a modern, user-friendly dropdown with multi-selection support.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+
+                <a href="https://www.nuget.org/packages/EasyCheckBoxList"
+                   target="_blank"
+                   class="btn btn-primary btn-lg p-4">
+                    NuGet Package
+                </a>
+
+                <a href="https://github.com/dragan171/EasyComponentsSample"
+                   target="_blank"
+                   class="btn btn-success btn-lg p-4">
+                    GitHub Sample Project
+                </a>
+
+            </div>
+            <br /> <br />
+        </section>
+
+        <section class="mb-5">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">ASP.NET Core Ready</h5>
+                            <p class="card-text mb-0">
+                                Select multiple values using a flexible and modern dropdown interface.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">ASP.NET Core Ready</h5>
+                            <p class="card-text mb-0">
+                                Supports MVC and Razor Pages with seamless model binding.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Customizable</h5>
+                            <p class="card-text mb-0">
+                                Use built-in styling and scripts or provide your own implementation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Features</h2>
+            Displays selected items as buttons in the header. Clicking a button removes the corresponding selection.
+            <div class="row">
+
+                <div class="col-md-6">
+                    <ul class="list-group shadow-sm">
+                        <li class="list-group-item">✅ Multi-select checkbox dropdown</li>
+                        <li class="list-group-item">✅ ASP.NET Core MVC support</li>
+                        <li class="list-group-item">✅ Razor Pages support</li>
+                        <li class="list-group-item">✅ Bootstrap-friendly appearance</li>
+                        <li class="list-group-item">✅ Built-in CSS support</li>
+                        <li class="list-group-item">✅ Built-in JavaScript support</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 mt-4 mt-md-0">
+                    <ul class="list-group shadow-sm">
+                        <li class="list-group-item">✅ Optional custom CSS</li>
+                        <li class="list-group-item">✅ Optional custom JavaScript</li>
+                        <li class="list-group-item">✅ Preselected values</li>
+                        <li class="list-group-item">✅ Additional information column</li>
+                        <li class="list-group-item">✅ Validation support</li>
+                        <li class="list-group-item">✅ Easy integration using asp-items</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+        <div class="mx-0 d-block p-5">
+            <img src="/images/easycheckboxlist.png" class="img-fluid p-5 mx-0 d-block border border-1 border-black rounded-3" />
+        </div>
+
+
+        <section class="mb-5">
+            <h2 class="section-title">Installation</h2>
+
+            <p class="text-muted">
+                Install the package from NuGet using the .NET CLI:
+            </p>
+
+            <div class="bg-dark text-light p-3 rounded shadow-sm">
+                <pre class="mb-0"><code>dotnet add package EasyCheckBoxList</code></pre>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Registration</h2>
+
+            <p class="text-muted">
+                Register the Tag Helper in your ASP.NET Core project:
+            </p>
+
+            <div class="bg-dark text-light p-3 rounded shadow-sm">
+                <pre class="mb-0"><code>@addTagHelper *, EasyCheckBoxList</code></pre>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">
+                Example Code
+
+            </h2>
+
+            <div class="bg-dark text-light p-3 rounded shadow-sm code-card">
+                <pre><code>
+using EasyComponentsSample.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+namespace EasyComponentsSample.Pages
+{
+    public class EasyCheckBoxListModel : PageModel
+    {
+        public EasyCheckBoxListModel()
+        {
+
+        }
+
+        [BindProperty]
+        public TestModel testModels { get; set; } = new();
+
+
+        public async Task OnGetAsync()
+        {
+            var list1 = new List<TestModel1>();
+            list1.Add(new TestModel1 { Name_1 = "Marco", Value_1 = "1000", Info_1 = "i1", Checked_1 = false });
+            list1.Add(new TestModel1 { Name_1 = "Peter", Value_1 = "2000", Info_1 = "i2", Checked_1 = false });
+            list1.Add(new TestModel1 { Name_1 = "John", Value_1 = "3000", Info_1 = "i3", Checked_1 = false });
+            list1.Add(new TestModel1 { Name_1 = "Stephen", Value_1 = "4000", Info_1 = "i4", Checked_1 = false });
+            list1.Add(new TestModel1 { Name_1 = "Robert", Value_1 = "5000", Info_1 = "i5", Checked_1 = false });
+            list1.Add(new TestModel1 { Name_1 = "Anton", Value_1 = "6000", Info_1 = "i6", Checked_1 = false });
+            list1.Add(new TestModel1 { Name_1 = "Victor", Value_1 = "7000", Info_1 = "i7", Checked_1 = false });
+
+            var list2 = new List<TestModel2>();
+            list2.Add(new TestModel2 { Name_2 = "Ana", Value_2 = "1100", Info_2 = "i-1", Checked_2 = false });
+            list2.Add(new TestModel2 { Name_2 = "Sophia", Value_2 = "2200", Info_2 = "i-2", Checked_2 = false });
+            list2.Add(new TestModel2 { Name_2 = "Helena", Value_2 = "3300", Info_2 = "i-3", Checked_2 = false });
+            list2.Add(new TestModel2 { Name_2 = "Emilia", Value_2 = "4400", Info_2 = "i-4", Checked_2 = false });
+            list2.Add(new TestModel2 { Name_2 = "Ines", Value_2 = "2200", Info_2 = "i-2", Checked_2 = false });
+            list2.Add(new TestModel2 { Name_2 = "Yvonne", Value_2 = "3300", Info_2 = "i-3", Checked_2 = false });
+            list2.Add(new TestModel2 { Name_2 = "Sara", Value_2 = "4400", Info_2 = "i-4", Checked_2 = false });
+
+            testModels.List1 = list1;
+            testModels.List2 = list2;
+        }
+
+        public async Task OnPostAsync(string? action)
+        {
+            var actuel = testModels;
+        }
+    }
+}
+
+            </code></pre>
+            </div>
+            <h2 class="section-title">Example  Model</h2>
+            <div class="bg-dark text-light p-3 rounded shadow-sm code-card">
+                <pre><code>
+namespace EasyComponentsSample.Models
+{
+    public class TestModel1
+    {
+        public string Name_1 { get; set; } = string.Empty;
+        public string Value_1 { get; set; } = string.Empty;
+        public string Info_1 { get; set; } = string.Empty;
+        public bool Checked_1 { get; set; }
+    }
+    public class TestModel2
+    {
+        public string Name_2 { get; set; } = string.Empty;
+        public string Value_2 { get; set; } = string.Empty;
+        public string Info_2 { get; set; } = string.Empty;
+        public bool Checked_2 { get; set; }
+
+    }
+    public class TestModel
+    {
+        public List<TestModel1> List1 { get; set; } = new();
+        public List<TestModel2> List2 { get; set; } = new();
+    }
+}
+
+
+
+            </code></pre>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">Basic </h2>
+
+            <div class="bg-dark text-light p-3 rounded shadow-sm code-card">
+                <pre><code>
+@page
+@model EasyCheckBoxListModel
+@addTagHelper *, EasyCheckBoxList
+
+
+                            &lt;check-box-combo asp-items="testModels.List1"
+                                             add-css="true"
+                                             add-javascript="true"
+                                             column-name="Name_1"
+                                             column-value="Value_1"
+                                             column-checked="Checked_1"
+                                             column-info="Info_1"
+                                             asp-title="Example 1"&gt;
+                            &lt;/check-box-combo&gt;
+                      
+            </code></pre>
+            </div>
+        </section>
+
+        <section class="mb-5">
+            <h2 class="section-title">View: Two EasyCheckBoxList Controls with a Table</h2>
+
+            <div class="bg-dark text-light p-3 rounded shadow-sm code-card">
+                <pre><code>
+@page
+@model EasyCheckBoxListModel
+@addTagHelper *, EasyCheckBoxList
+
+&lt;main&gt;
+    &lt;form method="post" id="f1"&gt;
+        &lt;div class="row mx-5 border"&gt;
+            &lt;div class="col-md-6 p-4"&gt;
+                &lt;table&gt;
+                    &lt;tr&gt;
+                        &lt;td style="width:250px"&gt;
+                            &lt;check-box-combo asp-items="testModels.List1"
+                                             add-css="false"
+                                             add-javascript="false"
+                                             column-name="Name_1"
+                                             column-value="Value_1"
+                                             column-checked="Checked_1"
+                                             column-info="Info_1"
+                                             asp-title="Example 1"&gt;
+                            &lt;/check-box-combo&gt;
+                        &lt;/td&gt;
+                        &lt;td style="width:250px"&gt;
+                            &lt;table style="width:100%"&gt;
+                                @@foreach (var item in Model.testModels.List1)
+                                {
+                                    &lt;tr&gt;
+                                        &lt;td&gt;@@item.Name_1&lt;/td&gt;
+                                        &lt;td&gt;@@item.Value_1&lt;/td&gt;
+                                        &lt;td style="background-color:#ffc"&gt;@@item.Checked_1&lt;/td&gt;
+                                        &lt;td&gt;@@item.Info_1&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                }
+                            &lt;/table&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+
+                    &lt;tr&gt;
+                        &lt;td style="width:250px; padding-top:100px"&gt;
+                            &lt;check-box-combo asp-items="testModels.List2"
+                                             add-css="false"
+                                             add-javascript="false"
+                                             column-name="Name_2"
+                                             column-value="Value_2"
+                                             column-checked="Checked_2"
+                                             column-info="Info_2"
+                                             asp-title="Example 2"&gt;
+                            &lt;/check-box-combo&gt;
+                        &lt;/td&gt;
+                        &lt;td style="width:250px; padding-top:100px"&gt;
+                            &lt;table style="width:100%"&gt;
+                                @@foreach (var item in Model.testModels.List2)
+                                {
+                                    &lt;tr&gt;
+                                        &lt;td&gt;@@item.Name_2&lt;/td&gt;
+                                        &lt;td&gt;@@item.Value_2&lt;/td&gt;
+                                        &lt;td style="background-color:#ffc"&gt;@@item.Checked_2&lt;/td&gt;
+                                        &lt;td&gt;@@item.Info_2&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                }
+                            &lt;/table&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="row bg-primary-subtle pt-3 align-items-center mx-5 mb-3"&gt;
+            &lt;button type="submit" class="btn btn-primary me-2 px-3"&gt;
+                Send
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/main&gt;
+
+&lt;link href="~/css/easycheckboxlist.css" rel="stylesheet" /&gt;
+&lt;script src="~/js/easycheckboxlist.js"&gt;&lt;/script&gt;
+            </code></pre>
+            </div>
+        </section>
+        <table class="table table-striped">
+            <tr>
+                <th>Attribute</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>asp-items</td>
+                <td>List of items containing the following properties: Name, Value, Checked, Info.</td>
+            </tr>
+            <tr>
+                <td style="width:150px">add-css</td>
+                <td>
+
+                    Use <strong>add-css="true"</strong> to automatically include the stylesheet, or manually include <strong>~/css/easycheckboxlist.css</strong> and set <strong>add-css="false"</strong>.
+                    <br />
+
+                    If multiple EasyCbList controls are used on the same page, the stylesheet should be included only once, either by using <strong>add-css="true"</strong> for a single control or by manually including <strong>~/css/easycheckboxlist.css</strong> once.
+            </tr>
+            <tr>
+                <td>add-javascript</td>
+                <td>
+
+                    Use <strong>add-javascript="true"</strong> to automatically include the script, or manually include <strong>~/js/easycheckboxlist.js</strong> and set <strong>add-javascript="false"</strong>.
+                    <br />
+
+                    If multiple EasyCbList controls are used on the same page, the script should be included only once, either by using <strong>add-javascript="true"</strong> for a single control or by manually including <strong>~/js/easycheckboxlist.js</strong> once.
+                </td>
+            </tr>
+            <tr>
+                <td>column-name</td>
+                <td>Name of the property used as display text.</td>
+            </tr>
+            <tr>
+                <td>column-value</td>
+                <td>Name of the property used as value.</td>
+            </tr>
+            <tr>
+                <td>column-checked</td>
+                <td>Name of the property indicating the selected state.</td>
+            </tr>
+            <tr>
+                <td>column-info</td>
+                <td>Name of the property used as additional information.</td>
+
+            </tr>
+            <tr>
+                <td>asp-title</td>
+                <td>Title displayed above the control.</td>
+            </tr>
+        </table>
+
+        <section class="mb-5">
+            <h2 class="section-title">Requirements</h2>
+            <ul class="list-group shadow-sm">
+                <li class="list-group-item">.NET 8 or later</li>
+                <li class="list-group-item">ASP.NET Core</li>
+            </ul>
+        </section>
+
+        <footer class="border-top pt-4 text-center">
+            <h4>EasyCheckBoxList</h4>
+            <p class="text-muted">
+                An ASP.NET Core Tag Helper that transforms standard checkbox collections
+                into a modern, user-friendly dropdown with multi-selection support.
+            </p>
+            <p class="mt-4 text-muted">  MIT License · Created by DraganS </p>
+        </footer>
+    </div>
+</body>
+</html>

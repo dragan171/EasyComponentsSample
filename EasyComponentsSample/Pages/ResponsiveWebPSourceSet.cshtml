@@ -1,0 +1,37 @@
+﻿@page
+@model ResponsiveWebPSourceSetModel
+@inject IWebHostEnvironment env
+@addTagHelper *, ResponsiveWebPSourceSet
+
+@{
+    ViewData["Title"] = "Home page";
+    var webRootImagePath = System.IO.Path.Combine(env.WebRootPath, "images", "photo1.jpg");
+    // Replace D:\data with a directory that exists on your system.
+    //var externalImagePath = System.IO.Path.Combine("D:\\data", "images", "photo2.jpg");
+    var webRootImagePath_3 = System.IO.Path.Combine(env.WebRootPath, "images", "photo3.png");
+}
+Basic usage of the responsive-webpsourceset tag helper:
+<responsive-webpsourceset Url="/images/photo1.jpg" 
+          SourceImagePath="@webRootImagePath">
+ </responsive-webpsourceset>
+
+
+
+@* Images that use an externalImagePath require a controller to serve image files from locations outside the web root.
+<responsive-webpsourceset Url="/external-images/photo2.jpg"
+   SourceImagePath="@externalImagePath">
+</responsive-webpsourceset> *@
+
+
+Customizing the responsive-webpsourceset tag helper with additional attributes: (image-width:media-minwidth)  2500:1400,1400:800,800:600
+<responsive-webpsourceset
+    Url="/images/photo3.png"
+    SourceImagePath="@webRootImagePath_3"
+    UserDefMedia="2500:1400,1400:800,800:600"
+    isLazyLoading="true"
+    isFetchpriorityHigh="false"
+    cssStyle="border:1px solid black;"
+    cssClass="custom-class"
+    alt="Description of the image"
+>
+</responsive-webpsourceset>

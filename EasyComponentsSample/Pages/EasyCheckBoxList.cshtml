@@ -1,0 +1,77 @@
+﻿@page
+@model EasyCheckBoxListModel
+@addTagHelper *, EasyCheckBoxList
+
+<main>
+    <form method="post" id="f1">
+        <div class="row mx-5 border">
+            <div class="col-md-6 p-4">
+                <table>
+                    <tr>
+                        <td style="width:250px">
+                            <check-box-combo asp-items="testModels.List1"
+                                             add-css="false"
+                                             add-javascript="false"
+                                             column-name="Name_1"
+                                             column-value="Value_1"
+                                             column-checked="Checked_1"
+                                             column-info="Info_1"
+                                             asp-title="Example 1">
+                            </check-box-combo>
+                        </td>
+                        <td style="width:250px">
+                            <table style="width:100%">
+                                @foreach (var item in Model.testModels.List1)
+                                {
+                                    <tr>
+                                        <td>@item.Name_1</td>
+                                        <td>@item.Value_1</td>
+                                        <td>@item.Checked_1  </td>
+                                        <td>@item.Info_1</td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="width:250px; padding-top:40px">
+                            <check-box-combo asp-items="testModels.List2"
+                                             add-css="false"
+                                             add-javascript="false"
+                                             column-name="Name_2"
+                                             column-value="Value_2"
+                                             column-checked="Checked_2"
+                                             column-info="Info_2"
+                                             asp-title="Example 2">
+                            </check-box-combo>
+                        </td>
+                        <td style="width:250px; padding-top:40px">
+                            <table style="width:100%">
+                                @foreach (var item in Model.testModels.List2)
+                                {
+                                    <tr>
+                                        <td>@item.Name_2</td>
+                                        <td>@item.Value_2</td>
+                                        <td>@item.Checked_2</td>
+                                        <td>@item.Info_2</td>
+                                    </tr>
+                                }
+                            </table>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="row bg-primary-subtle pt-3 align-items-center mx-5 mb-3">
+            <button type="submit" class="btn btn-primary me-2 px-3">
+                Send
+            </button>
+        </div>
+
+    </form>
+</main>
+
+<link href="~/css/easycheckboxlist.css" rel="stylesheet" />
+<script src="~/js/easycheckboxlist.js"></script>

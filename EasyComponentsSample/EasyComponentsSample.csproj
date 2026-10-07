@@ -7,8 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EasyCheckBoxList" Version="1.0.0" />
     <PackageReference Include="ResponsiveWebPSourceSet" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EasyCheckBoxList">
+      <HintPath>..\..\BlazorHybrid\EasyCheckBoxList\bin\Debug\net8.0\EasyCheckBoxList.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

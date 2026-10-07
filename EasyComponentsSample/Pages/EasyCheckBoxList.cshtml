@@ -4,14 +4,22 @@
 
 <main>
     <form method="post" id="f1">
+        <br /><br /><br /><br /><br />
+        <div id="id_easycblist_All" style="border: 1px solid black; padding: 10px;min-height:149px">
+           
+        </div>
+
+
         <div class="row mx-5 border">
             <div class="col-md-6 p-4">
                 <table>
                     <tr>
                         <td style="width:250px">
                             <check-box-combo asp-items="testModels.List1"
-                                             add-javascript="true"
-                                             add-css="true"
+                                       @*       add-javascript="true"
+                                             add-css="true" *@
+                                             button-textcolor="#fff"
+                                             button-backgroundcolor="#f00"
                                              column-name="Name_1"
                                              column-value="Value_1"
                                              column-checked="Checked_1"
@@ -37,7 +45,8 @@
                     <tr>
                         <td style="width:250px; padding-top:100px">
                             <check-box-combo asp-items="testModels.List2"
-              
+                                             button-textcolor="#fff"
+                                             button-backgroundcolor="#00f"
                                              column-name="Name_2"
                                              column-value="Value_2"
                                              column-checked="Checked_2"
@@ -72,5 +81,5 @@
     </form>
 </main>
 
-@* <link href="~/css/easycheckboxlist.css" rel="stylesheet" />
-<script src="~/js/easycheckboxlist.js"></script> *@
+<link href="~/css/easycheckboxlist.css" rel="stylesheet" />
+<script src="~/js/easycheckboxlist.js"></script>

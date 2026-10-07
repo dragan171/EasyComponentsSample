@@ -11,7 +11,6 @@
                 min-height: 38px;
                 display: flex;
                 flex-wrap: wrap;
-                gap: 4px;
                 cursor: pointer;
                 padding: 4px 30px 4px 4px;
                 position: relative;
@@ -72,15 +71,18 @@
                 cursor: pointer;
             }
 
+            #id_easycblist_All button,
             [data-easycblist="container"] button
             {
                 background-color:#000;
                 color:#fff;
                 position:relative;
                 border-radius:4px;
-                padding-right:22px;       
+                padding-right:22px;     
+                margin:1px;
             }
-        
+
+            #id_easycblist_All button::after,
             [data-easycblist="container"] button::after
             {
                content: "✖";
@@ -88,7 +90,7 @@
                 right: 6px;
                 top: 50%;
                 transform: translateY(-50%);
-                color: #fff;
+                color: #fff !important;
                 font-size: 10px;
                 pointer-events: none;
             }

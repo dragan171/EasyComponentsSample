@@ -16,6 +16,14 @@ namespace EasyComponentsSample.Pages
 
         public async Task OnGetAsync()
         {
+
+            var list0 = new List<TestModel0>();
+            list0.Add(new TestModel0 { Name = "Red", Value = "x100", Info = "ix1", Checked = false });
+            list0.Add(new TestModel0 { Name = "Blue", Value = "x2000", Info = "ix2", Checked = false });
+            list0.Add(new TestModel0 { Name = "White", Value = "x3000", Info = "ix3", Checked = false });
+            list0.Add(new TestModel0 { Name = "Black", Value = "x4000", Info = "ix4", Checked = false });
+            list0.Add(new TestModel0 { Name = "Green", Value = "x5000", Info = "ix5", Checked = false });
+
             var list1 = new List<TestModel1>();
             list1.Add(new TestModel1 { Name_1 = "Marco", Value_1 = "1000", Info_1 = "i1", Checked_1 = false });
             list1.Add(new TestModel1 { Name_1 = "Peter", Value_1 = "2000", Info_1 = "i2", Checked_1 = false });
@@ -34,6 +42,7 @@ namespace EasyComponentsSample.Pages
             list2.Add(new TestModel2 { Name_2 = "Yvonne", Value_2 = "3300", Info_2 = "i-3", Checked_2 = false });
             list2.Add(new TestModel2 { Name_2 = "Sara", Value_2 = "4400", Info_2 = "i-4", Checked_2 = false });
 
+            testModels.List0 = list0;
             testModels.List1 = list1;
             testModels.List2 = list2;
         }

@@ -56,7 +56,11 @@ class CheckDropDown {
     Refresh() {
         const id_easycblist_All = document.getElementById("id_easycblist_All");
         const prefix = this.content.dataset.easycbprefix;
-        id_easycblist_All.querySelectorAll(`button[data-checkid^="${prefix}"]`).forEach(btn => btn.remove());
+        const buttonaddtosharedfield = this.content.dataset.buttonaddtosharedfield;
+  
+        if (id_easycblist_All) {
+            id_easycblist_All.querySelectorAll(`button[data-checkid^="${prefix}"]`).forEach(btn => btn.remove());
+        }
 
         if (!this.content) { return; }
 
@@ -78,12 +82,13 @@ class CheckDropDown {
         const fragment2 = fragment.cloneNode(true);
         this.content.replaceChildren(fragment);
 
-        id_easycblist_All.appendChild(fragment2);
-        id_easycblist_All.querySelectorAll(`button[data-checkid^="${prefix}"]`)
-            .forEach(btn => {
-                btn.onclick = () => { this.container.querySelector(`[data-checkid="${btn.dataset.checkid}"]`) ?.click();};
-            });
-   
+        if (id_easycblist_All && buttonaddtosharedfield === "true") {
+            id_easycblist_All.appendChild(fragment2);
+            id_easycblist_All.querySelectorAll(`button[data-checkid^="${prefix}"]`)
+                .forEach(btn => {
+                    btn.onclick = () => { this.container.querySelector(`[data-checkid="${btn.dataset.checkid}"]`)?.click(); };
+                });
+        }
         // const totalWidth =
         //     [...this.content.querySelectorAll('[data-checkid]')]
         //         .reduce((sum, btn) => sum + btn.offsetWidth, 0);

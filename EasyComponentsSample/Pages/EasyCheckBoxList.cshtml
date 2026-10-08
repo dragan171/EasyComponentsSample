@@ -4,23 +4,55 @@
 
 <main>
     <form method="post" id="f1">
-        <br /><br /><br /><br /><br />
+        <br /><br /><br />
+        <div>
+            div-field (optional): Shared field for selected values.</div>
+        <div>button-add-to-shared-field (default is true): Adds selected values to the shared field.</div>
         <div id="id_easycblist_All" style="border: 1px solid black; padding: 10px;min-height:149px; margin-bottom:30px; background-color:#ccc">
         </div>
 
         <table>
             <tr>
                 <td style="width:250px">
+                    <check-box-combo asp-items="testModels.List0"
+                    button-add-to-shared-field="false"
+                    
+                        asp-title="Colors List">
+                    </check-box-combo>
+                    <br /><br />
+                    <table style="width:100%;">
+                        @foreach (var item in Model.testModels.List0)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Value</td>
+                                <td>
+                                    @if (item.Checked)
+                                    {
+                                        <strong>@item.Checked</strong>
+                                    }
+                                    else
+                                    {
+                                        @item.Checked           
+                                    }
+                                </td>
+                                <td>@item.Info</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+                <td style="width:100px"></td>
+                <td style="width:250px">
                     <check-box-combo asp-items="testModels.List1"
-                   @*     add-javascript="true"
-                          add-css="true" *@
-                        button-textcolor="#fff"
-                        button-backgroundcolor="#dc3545"
-                        column-name="Name_1"
-                        column-value="Value_1"
-                        column-checked="Checked_1"
-                        column-info="Info_1"
-                        asp-title="Example 1">
+                         @*     add-javascript="true"
+                          add-css="true"  *@
+                                     button-textcolor="#fff"
+                                     button-backgroundcolor="#dc3545"
+                                     column-name="Name_1"
+                                     column-value="Value_1"
+                                     column-checked="Checked_1"
+                                     column-info="Info_1"
+                                     asp-title="Example 1">
                     </check-box-combo>
                     <br /><br />
                     <table style="width:100%;">

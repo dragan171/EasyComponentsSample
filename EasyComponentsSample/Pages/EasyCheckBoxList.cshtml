@@ -5,79 +5,86 @@
 <main>
     <form method="post" id="f1">
         <br /><br /><br /><br /><br />
-        <div id="id_easycblist_All" style="border: 1px solid black; padding: 10px;min-height:149px">
-           
+        <div id="id_easycblist_All" style="border: 1px solid black; padding: 10px;min-height:149px; margin-bottom:30px; background-color:#ccc">
         </div>
 
+        <table>
+            <tr>
+                <td style="width:250px">
+                    <check-box-combo asp-items="testModels.List1"
+                   @*     add-javascript="true"
+                          add-css="true" *@
+                        button-textcolor="#fff"
+                        button-backgroundcolor="#dc3545"
+                        column-name="Name_1"
+                        column-value="Value_1"
+                        column-checked="Checked_1"
+                        column-info="Info_1"
+                        asp-title="Example 1">
+                    </check-box-combo>
+                    <br /><br />
+                    <table style="width:100%;">
+                        @foreach (var item in Model.testModels.List1)
+                        {
+                            <tr>
+                                <td>@item.Name_1</td>
+                                <td>@item.Value_1</td>
+                                <td>
+                                    @if (item.Checked_1)
+                                    {
+                                        <strong>@item.Checked_1</strong>
+                                    }
+                                    else
+                                    {
+                                        @item.Checked_1
+                                    }
+                                </td>
+                                <td>@item.Info_1</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+                <td style="width:100px"></td>
+                <td style="width:250px">
+                    <check-box-combo asp-items="testModels.List2"
+                        button-textcolor="#fff"
+                        button-backgroundcolor="#198754"
+                        column-name="Name_2"
+                        column-value="Value_2"
+                        column-checked="Checked_2"
+                        column-info="Info_2"
+                        asp-title="Example 2">
+                    </check-box-combo>
+                    <br /><br />
+                    <table style="width:100%;">
+                        @foreach (var item in Model.testModels.List2)
+                        {
+                            <tr>
+                                <td>@item.Name_2</td>
+                                <td>@item.Value_2</td>
+                                <td>
+                                    @if (item.Checked_2)
+                                    {
+                                        <strong>@item.Checked_2</strong>
+                                    }
+                                    else
+                                    {
+                                        @item.Checked_2
+                                    }
+                                </td>
+                                <td>@item.Info_2</td>
+                            </tr>
+                        }
+                    </table>
+                </td>
+            </tr>
+        </table>
 
-        <div class="row mx-5 border">
-            <div class="col-md-6 p-4">
-                <table>
-                    <tr>
-                        <td style="width:250px">
-                            <check-box-combo asp-items="testModels.List1"
-                                       @*       add-javascript="true"
-                                             add-css="true" *@
-                                             button-textcolor="#fff"
-                                             button-backgroundcolor="#f00"
-                                             column-name="Name_1"
-                                             column-value="Value_1"
-                                             column-checked="Checked_1"
-                                             column-info="Info_1"
-                                             asp-title="Example 1">
-                            </check-box-combo>
-                        </td>
-                        <td style="width:250px">
-                            <table style="width:100%">
-                                @foreach (var item in Model.testModels.List1)
-                                {
-                                    <tr>
-                                        <td>@item.Name_1</td>
-                                        <td>@item.Value_1</td>
-                                        <td style="background-color:#ffc">@item.Checked_1  </td>
-                                        <td>@item.Info_1</td>
-                                    </tr>
-                                }
-                            </table>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="width:250px; padding-top:100px">
-                            <check-box-combo asp-items="testModels.List2"
-                                             button-textcolor="#fff"
-                                             button-backgroundcolor="#00f"
-                                             column-name="Name_2"
-                                             column-value="Value_2"
-                                             column-checked="Checked_2"
-                                             column-info="Info_2"
-                                             asp-title="Example 2">
-                            </check-box-combo>
-                        </td>
-                        <td style="width:250px; padding-top:100px">
-                            <table style="width:100%">
-                                @foreach (var item in Model.testModels.List2)
-                                {
-                                    <tr>
-                                        <td>@item.Name_2</td>
-                                        <td>@item.Value_2</td>
-                                        <td style="background-color:#ffc">@item.Checked_2</td>
-                                        <td>@item.Info_2</td>
-                                    </tr>
-                                }
-                            </table>
-                        </td>
-                    </tr>
-
-                </table>
-            </div>
-        </div>
-        <div class="row bg-primary-subtle pt-3 align-items-center mx-5 mb-3">
-            <button type="submit" class="btn btn-primary me-2 px-3">
+        <div style="text-align:center;">
+            <button type="submit" class="btn btn-primary btn-lg px-3 my-3">
                 Send
             </button>
         </div>
-
     </form>
 </main>
 

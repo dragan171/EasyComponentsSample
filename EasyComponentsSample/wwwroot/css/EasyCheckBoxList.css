@@ -1,96 +1,87 @@
-﻿  [data-easycblist="start"] 
-            {
-              width:100%;
-              position:relative;
-            }
+﻿[data-easycblist="start"] {
+    width: 100%;
+    position: relative;
+}
 
-            [data-easycblist="container"] 
-            {
-                border-radius: 4px;
-                border: 1px solid #dee2e6;
-                min-height: 38px;
-                display: flex;
-                flex-wrap: wrap;
-                cursor: pointer;
-                padding: 4px 30px 4px 4px;
-                position: relative;
-            }
+[data-easycblist="container"] {
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    min-height: 38px;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+    padding: 4px 30px 4px 4px;
+    position: relative;
+}
 
-            [data-easycblist="container"]::after
-            {
-                content: "▼";
-                position: absolute;
-                right: 10px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: #6c757d;
-                font-size: 12px;
-                pointer-events: none;
-            }
+[data-easycblist="container"]::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 12px;
+    pointer-events: none;
+}
 
-            [data-easycblist="panel"] 
-            {
-             width:100%; border: 1px solid #dee2e6;
-                        position:absolute;
-                        top:100%;
-                        left:0;
-                        z-index:1000;
-                    
-                        max-height:250px;
-                        overflow-y:auto;
-            }
-            [data-easycblist="start"] table
-            {
-                width:100%;
-            }
-            [data-easycblist="start"] table td
-            {
-                vertical-align: middle;
-            }
-            [data-easycblist="start"] input[type="checkbox"]
-            {
-                vertical-align: middle;
-            }
+[data-easycblist="panel"] {
+    width: 100%;
+    border: 1px solid #dee2e6;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    max-height: 250px;
+    overflow-y: auto;
+}
 
-            [data-easycblist="start"] table tr td:nth-child(1)
-            {
-                width:35px;
-            }
+[data-easycblist="start"] table {
+    width: 100%;
+}
 
-            [data-easycblist="start"] table tr td:nth-child(3)
-            {
-                text-align: right;
-                width: 40px;
-            }
+[data-easycblist="start"] table td {
+    vertical-align: middle;
+}
 
-            [data-easycblist="start"] input[type="checkbox"]
-            {
-                width: 18px;
-                height: 18px;
-                accent-color: #0d6efd;
-                cursor: pointer;
-            }
+[data-easycblist="start"] input[type="checkbox"] {
+    vertical-align: middle;
+}
 
-            #id_easycblist_All button,
-            [data-easycblist="container"] button
-            {
-                background-color:#000;
-                color:#fff;
-                position:relative;
-                border-radius:4px;
-                padding-right:22px;     
-                margin:1px;
-            }
+[data-easycblist="start"] table tr td:nth-child(1) {
+    width: 35px;
+}
 
-            #id_easycblist_All button::after,
-            [data-easycblist="container"] button::after
-            {
-               content: "✖";
-                position: absolute;
-                right: 6px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: #fff !important;
-                font-size: 10px;
-                pointer-events: none;
-            }
+[data-easycblist="start"] table tr td:nth-child(3) {
+    text-align: right;
+    width: 40px;
+}
+
+[data-easycblist="start"] input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #0d6efd;
+    cursor: pointer;
+}
+
+#id_easycblist_All button,
+[data-easycblist="container"] button {
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    border-radius: 5px;
+    padding-right: 22px;
+    margin: 1px;
+}
+
+    #id_easycblist_All button::after,
+    [data-easycblist="container"] button::after {
+        content: "x";
+        font-weight: bold;
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 10px;
+        pointer-events: none;
+    }

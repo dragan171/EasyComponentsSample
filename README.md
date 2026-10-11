@@ -92,8 +92,50 @@ Install-Package ResponsiveWebPSourceSet
 dotnet add package ResponsiveWebPSourceSet
 ```
 ---
+## CropAndWebP.TagHelper - Crop Images and Convert to WebP Automatically
+## Create SEO-friendly, high-performance thumbnails with consistent dimensions for galleries, product listings, cards, blogs, and responsive websites
+
+Crop JPG, JPEG, PNG, and GIF images and automatically convert them to WebP
+
+Supports lazy loading, fetch priority, CLS reduction, and SEO-friendly markup.
+
+Features
+
+✅ Automatic center cropping to fixed dimensions
+
+✅ Consistent thumbnail sizes regardless of source image dimensions
+
+✅ Ideal for thumbnail galleries, cards, and listings
+
+✅ Automatic WebP conversion
+
+✅ Automatic width and height detection
+
+✅ CLS reduction
+
+✅ Lazy loading support
+
+✅ Fetch priority support
+
+✅ SEO-friendly markup
+
+✅ Lightweight and fast
+
+✅ Easy to use
 
 
+## Installation
+
+### Package Manager
+
+```powershell
+Install-Package CropAndWebP.TagHelper
+```
+### .NET CLI
+
+```powershell
+dotnet add package CropAndWebP.TagHelper
+```
 
 
 

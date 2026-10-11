@@ -2,6 +2,8 @@
 
 ## 1.EasyCheckBoxList - Multi-select checkbox dropdown
 Selected values are automatically displayed as buttons in the header.
+Shared Field for All Selected Values Across Multiple Controls
+### Allows multiple EasyCheckBoxList controls to share the same container for displaying selected values.
 ```csharp
 var list1 = new List<TestModel1>();
     list1.Add(new TestModel1 { Name_1 = "Marco", Value_1 = "1000", Info_1 = "i1", Checked_1 = false });
@@ -23,7 +25,19 @@ Basic usage of the `responsive-webpsourceset` Tag Helper:
 ```
 ![srcset](https://raw.githubusercontent.com/dragan171/EasyComponentsSample/main/EasyComponentsSample/wwwroot/images/EasyCheckBoxList.png)
 
+## Installation
 
+### Package Manager
+
+```powershell
+Install-Package EasyCheckBoxList
+```
+
+### .NET CLI
+
+```powershell
+dotnet add package EasyCheckBoxList
+```
 -----------------------------------------------------------------------------------------------------------------
 
 
@@ -46,5 +60,43 @@ Basic Usage - Generated HTML (Height and width are automatically set)
   <source srcset="/images/photo1-size576.webp" media="(min-width:420px)">
   <img style="max-width:100%; height:auto;" src="/images/photo1.jpg" alt="photo1" width="4800" height="4000" />
 </picture>
+
+Custom Configuration: Customize media breakpoints, lazy loading, fetch priority, CSS attributes, and alternative text.
+Example using UserDefMedia="2500:1400,1400:800,800:600"
+<responsive-webpsourceset
+    Url="/images/photo1.jpg"
+    SourceImagePath="@webRootImagePath"
+    UserDefMedia="2500:1400,1400:800,800:600"
+    isLazyLoading="true"
+    isFetchpriorityHigh="false"
+    cssStyle="border:1px solid black;"
+    cssClass="custom-class"
+    Alt="Description of the image">
+</responsive-webpsourceset>
+
 ```
 ![srcset](https://raw.githubusercontent.com/dragan171/EasyComponentsSample/main/EasyComponentsSample/wwwroot/images/srcset.png)
+
+
+## Installation
+
+### Package Manager
+
+```powershell
+Install-Package ResponsiveWebPSourceSet
+```
+
+### .NET CLI
+
+```powershell
+dotnet add package ResponsiveWebPSourceSet
+```
+---
+
+
+
+
+
+
+
+

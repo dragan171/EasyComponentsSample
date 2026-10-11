@@ -1,0 +1,89 @@
+﻿@page
+@model CropAndWebpModel
+@inject IWebHostEnvironment env
+@addTagHelper *, CropAndWebP.TagHelper
+<style>
+  
+    picture:not(:has(source)) > img.class1 {
+        border: 2px solid #f00;
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    picture:has(source) > img.class1 {
+        border: 2px solid #0f0;
+    }
+
+    .class0 {
+        max-width: 600px; height:auto;
+        border: 2px solid #f0f;
+    }
+</style>
+@{
+    ViewData["Title"] = "Home page";
+    var webRootImagePath1 = System.IO.Path.Combine(env.WebRootPath, "images", "1.jpg");
+    var webRootImagePath2 = System.IO.Path.Combine(env.WebRootPath, "images", "2.jpg");
+    // Replace D:\data with a directory that exists on your system.
+    //var externalImagePath = System.IO.Path.Combine("D:\\data", "images", "photo2.jpg");
+    //Images that use an externalImagePath require a controller to serve image files from locations outside the web root.
+    //open file: Controllers/ImagesController.cs
+}
+
+<h4>CropAndWebP.TagHelper - Crop Images and Convert to WebP Automatically</h4>
+<h4>
+    Create SEO-friendly, high-performance thumbnails with consistent dimensions for galleries, product listings, cards, blogs, and responsive websites</h4>
+    <br />
+
+<div class="alert  alert-danger">
+    The first request displays the original image because the WebP version has not been generated yet. CSS styling is applied immediately.
+</div>
+<br />
+<div class="alert alert-success" >
+    After the WebP file is created, an SEO-optimized "picture" element is rendered automatically.
+</div>
+
+
+<table style="width:100%">
+    <tr>
+        
+        <td style="width:50%">
+            <h4>firstResizeThanCrop="false"</h4>
+            <br />If neither cropWidth nor cropHeight is specified, the original image is converted to WebP without cropping<br />
+            <CropAndWebP firstResizeThanCrop="false"  cssClass="class0" 
+                         SourceImagePath="@webRootImagePath1" Url="/images/1.jpg" />
+        
+            <br />cropHeight="200" cropWidth="200", All images have the same dimensions.<br />
+            <CropAndWebP cropHeight="200" cropWidth="200" firstResizeThanCrop="false"
+                         SourceImagePath="@webRootImagePath1" Url="/images/1.jpg" cssClass="class1" />
+             
+            <br />cropWidth="200", All images have the same dimensions width<br />
+            <CropAndWebP cropWidth="200" firstResizeThanCrop="false"
+                         SourceImagePath="@webRootImagePath1" Url="/images/1.jpg" cssClass="class1" />
+        
+            <br />cropHeight="200" , All images have the same  height<br />
+            <CropAndWebP cropHeight="200" firstResizeThanCrop="false"
+                         SourceImagePath="@webRootImagePath1" Url="/images/1.jpg" cssClass="class1" />
+        </td>
+        <td style="width:50%">
+            <h4>firstResizeThanCrop="true"</h4>
+            <br />If neither cropWidth nor cropHeight is specified, the original image is converted to WebP without cropping<br />
+            <CropAndWebP firstResizeThanCrop="true" cssClass="class0"
+                         SourceImagePath="@webRootImagePath2" Url="/images/2.jpg" />
+         
+            <br />cropHeight="200" cropWidth="200", all iamges have same dimension<br />
+            <CropAndWebP cropHeight="200" cropWidth="200" firstResizeThanCrop="true"
+                         SourceImagePath="@webRootImagePath2" Url="/images/2.jpg" cssClass="class1" />
+            
+            <br />cropWidth="200", All images have the same  width.<br />
+            <CropAndWebP cropWidth="200" firstResizeThanCrop="true"
+                         SourceImagePath="@webRootImagePath2" Url="/images/2.jpg" cssClass="class1" />
+           
+            <br />cropWidth="200", All images have the same height.<br />
+            <CropAndWebP cropHeight="200" firstResizeThanCrop="true"
+                         SourceImagePath="@webRootImagePath2" Url="/images/2.jpg" cssClass="class1" />
+            
+        </td>
+    </tr>
+</table>

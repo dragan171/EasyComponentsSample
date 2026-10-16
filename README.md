@@ -1,9 +1,11 @@
 ## Two Useful Tag Helpers for .NET Core
+----------------------------------------
+
+## 1.) EasyCheckBoxList - Multi-select checkbox dropdown
 
 🎥 Video Demo:
 https://www.youtube.com/watch?v=7BUQLeoMaSg
 
-## 1.EasyCheckBoxList - Multi-select checkbox dropdown
 Selected values are automatically displayed as buttons in the header.
 Shared Field for All Selected Values Across Multiple Controls
 ### Allows multiple EasyCheckBoxList controls to share the same container for displaying selected values.
@@ -44,7 +46,7 @@ dotnet add package EasyCheckBoxList
 -----------------------------------------------------------------------------------------------------------------
 
 
-## 2.ResponsiveWebPSourceSet - Automatic WebP Conversion
+## 2.) ResponsiveWebPSourceSet - Automatic WebP Conversion
 
 ```html
 Basic usage of the `responsive-webpsourceset` Tag Helper:
@@ -94,9 +96,8 @@ Install-Package ResponsiveWebPSourceSet
 ```powershell
 dotnet add package ResponsiveWebPSourceSet
 ```
----
-## CropAndWebP.TagHelper - Crop Images and Convert to WebP Automatically
-## Create SEO-friendly, high-performance thumbnails with consistent dimensions for galleries, product listings, cards, blogs, and responsive websites
+## 3.) CropAndWebP.TagHelper - Crop Images and Convert to WebP Automatically
+### Create SEO-friendly, high-performance thumbnails with consistent dimensions for galleries, product listings, cards, blogs, and responsive websites
 
 Crop JPG, JPEG, PNG, and GIF images and automatically convert them to WebP
 
@@ -125,6 +126,10 @@ Features
 ✅ Lightweight and fast
 
 ✅ Easy to use
+
+
+  <CropAndWebP cropHeight="200" cropWidth="200" firstResizeThanCrop="true"
+               SourceImagePath="@webRootImagePath1" Url="/images/1.jpg" cssClass="class1" />
 
 
 ## Installation

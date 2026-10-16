@@ -1,4 +1,4 @@
-## Two Useful Tag Helpers for .NET Core
+## Three Useful Tag Helpers for .NET Core
 ----------------------------------------
 
 ## 1.) EasyCheckBoxList - Multi-select checkbox dropdown

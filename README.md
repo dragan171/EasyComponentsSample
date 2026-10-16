@@ -127,9 +127,11 @@ Features
 
 ✅ Easy to use
 
-
+```html
   <CropAndWebP cropHeight="200" cropWidth="200" firstResizeThanCrop="true"
                SourceImagePath="@webRootImagePath1" Url="/images/1.jpg" cssClass="class1" />
+```
+
 
 
 ## Installation
